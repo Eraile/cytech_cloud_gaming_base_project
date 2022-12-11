@@ -22,7 +22,6 @@ public class MyPlayerController : MonoBehaviour
     public float speedFactor = 5.0f;
     void HandleHorizontalMove()
     {
-        Vector3 targetVelocity = new Vector2(this.horizontalInput * this.speedFactor, this.rigidbody2D.velocity.y);
-        this.rigidbody2D.velocity = Vector3.SmoothDamp(this.rigidbody2D.velocity, targetVelocity, ref velocity, 0.0f);
+        this.rigidbody2D.velocity = new Vector2(this.horizontalInput * this.speedFactor, this.rigidbody2D.velocity.y);
     }
 }
