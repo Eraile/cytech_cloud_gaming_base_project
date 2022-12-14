@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 217205473}
   - component: {fileID: 217205475}
   - component: {fileID: 217205474}
+  - component: {fileID: 217205476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -221,7 +222,7 @@ Animator:
   m_GameObject: {fileID: 217205469}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e4cff99bdcba65045bd79a993cb7a7cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2f342801f1c725543beb89ce31cf9095, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -283,6 +284,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.004903722, y: -0.057210326}
   m_Size: {x: 0.17308031, y: 0.21557938}
   m_Direction: 0
+--- !u!114 &217205476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217205469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f58da0145ef89f4a9e0642fa429a323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 217205472}
+  rb2D: {fileID: 217205473}
+  spriteRenderer: {fileID: 217205471}
 --- !u!1 &677378404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1697,7 @@ GameObject:
   - component: {fileID: 1551247030}
   - component: {fileID: 1551247029}
   - component: {fileID: 1551247028}
+  - component: {fileID: 1551247031}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1754,3 +1771,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1551247031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551247027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096ecc7b25ddca747a7e4fad64db10e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 217205470}
+  speedFactor: 3
