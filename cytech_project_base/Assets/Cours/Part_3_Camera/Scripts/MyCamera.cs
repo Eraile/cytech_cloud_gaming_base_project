@@ -20,4 +20,14 @@ public class MyCamera : MonoBehaviour
         // Set new position
         this.transform.position = newPosition;
     }
+
+    public void OnPlayerDead()
+    {
+        this.enabled = false;
+    }
+
+    public void OnPlayerAlive()
+    {
+        this.enabled = true;
+    }
 }

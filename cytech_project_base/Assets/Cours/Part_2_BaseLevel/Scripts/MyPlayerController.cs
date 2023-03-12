@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MyPlayerController : MonoBehaviour
@@ -54,14 +53,44 @@ public class MyPlayerController : MonoBehaviour
             for (int i=0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != this.gameObject)
+                {
+                    // Update grounded status
                     this.isGrounded = true;
+
+                    // If we are grounded on a "moving platform", parent ourselves
+                    WaypointFollower waypointFollower = colliders[i].gameObject.GetComponent<WaypointFollower>();
+                    if (waypointFollower != null)
+                        this.transform.parent = waypointFollower.transform;
+                    // Remove parent & don't inherit physics movements from parent
+                    else
+                        this.transform.parent = null;
+                }
             }
         }
+
+        // If not grounded, reset parent
+        if (this.isGrounded == false)
+            this.transform.parent = null;
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(this.groundCheck.position, this.groundCheckRadius);
+    }
+
+    // Player Death system
+    public void OnPlayerDead()
+    {
+        this.enabled = false;
+    }
+
+    public void OnPlayerAlive()
+    {
+        this.enabled = true;
+
+        // Small detail, reset physics & parent
+        this.transform.parent = null;
+        this.rigidbody2D.velocity = Vector2.zero;
     }
 }

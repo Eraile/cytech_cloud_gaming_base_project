@@ -8,8 +8,8 @@ public class WaypointFollower : MonoBehaviour
     public Transform start = null;
     public Transform end = null;
 
-    // 
-    public float speedFactor = Time.deltaTime;    
+    // Speed of the platform
+    public float speedFactor = 1.0f;
 
     // Start is called before the first frame update
     void Start()
